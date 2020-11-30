@@ -19,33 +19,21 @@ class UserAdapter(val users : List<User>) : RecyclerView.Adapter<UserAdapter.Vie
         val twLastName : TextView = itemView.findViewById(R.id.textViewLastName)
         val twAge : TextView = itemView.findViewById(R.id.textViewAge)
         val twDescription : TextView = itemView.findViewById(R.id.textViewDescription)
-        val ivImage : ImageView = itemView.findViewById(R.id.imageViewPortfile)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val teamMemberView = inflater.inflate(R.layout.item_user, parent, false)
-        return ViewHolder(teamMemberView)
+        val userView = inflater.inflate(R.layout.item_user, parent, false)
+        return ViewHolder(userView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user : User = users.get(position)
-        holder.twLastName.text = user.name
+        holder.twName.text = user.name
         holder.twLastName.text = user.lastName
         holder.twAge.text = user.age
-        Picasso.get()
-                .load("https://quacklabs.herokuapp.com${user.img}")
-                .into(holder.ivImage, object: Callback {
-                    override fun onSuccess() {
-                        //set animations here
-                        Log.d("TeamMemberAdapter", "Success loading ${user.name}'s foto!")
-                    }
-
-                    override fun onError(e: Exception?) {
-                        Log.e("TeamMemberAdapter", "Couldnt load images: " + e.toString())
-                    }
-                })
+        holder.twDescription.text = user.description
     }
 
     override fun getItemCount(): Int {
