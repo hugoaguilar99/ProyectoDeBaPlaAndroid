@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
                     val manager = Gson()
                     Log.i("User", manager.toString())
                     val allUsers : AllUsers = manager.fromJson(response.toString(),AllUsers::class.java)
-
                     val users : List<User> = allUsers.equipo
 
                     rvUser.adapter = UserAdapter(users)
