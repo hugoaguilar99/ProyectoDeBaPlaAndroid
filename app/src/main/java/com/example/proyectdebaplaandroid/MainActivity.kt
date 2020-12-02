@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val rvUser = findViewById<RecyclerView>(R.id.rvTeamMembers)
 
         val queue = Volley.newRequestQueue(this)
-        val url  = "https://quacklabs.herokuapp.com/about"
+        val url  = "http://192.168.100.9:3000/about"
 
         val jsonRequest : StringRequest = StringRequest(Request.Method.GET, url ,
                 {response->
