@@ -1,5 +1,5 @@
 # 
-Desarrollo de aplicacion movil capas de descargar archivo json de un servidor y mostrar los datos que contiene el mismo
+Desarrollo de una aplicación móvil capaz de descargar un archivo JSON de un servidor y mostrar los datos que contiene.
 
 
 
